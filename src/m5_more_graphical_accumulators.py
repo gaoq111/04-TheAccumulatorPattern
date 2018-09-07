@@ -9,8 +9,8 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python. 
   
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and BERT.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -268,7 +268,7 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
       :type window: rg.RoseWindow
       """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -281,7 +281,26 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
-
+    a = rectangle1.get_center()
+    b = rectangle2.get_center()
+    c = rectangle1.get_lower_left_corner()
+    d = c.x
+    e = c.y
+    f = a.x
+    g = a.y
+    h = b.x
+    i = b.y
+    rectangle1.attach_to(window)
+    rectangle2.attach_to(window)
+    for k in range(n):
+        line = rg.Line(rg.Point(f-(f-d)*k,g+(e-g)*k),rg.Point(h-(f-d)*k,i+(e-g)*k))
+        line.thickness = 5
+        line.attach_to(window)
+        if k%2 ==0:
+            line.color = rectangle1.outline_color
+        else:
+            line.color = rectangle2.outline_color
+    window.render()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

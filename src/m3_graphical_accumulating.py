@@ -187,7 +187,7 @@ def draw_lines(n, point, window):
     m = point.x
     p = point.y
     for k in range (n):
-        
+
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
